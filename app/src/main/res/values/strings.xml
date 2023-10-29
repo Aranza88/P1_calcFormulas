@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Form Calculator</string>
+    <string name="instruction_1">Select a formula</string>
+
+    <string-array name="spinner_options">
+        <item>Cylinder volume</item>
+        <item>Cone Volume</item>
+        <item>Pyramid Volume</item>
+    </string-array>
+
+</resources>
