@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Volumenes</string>
+    <string name="instruction_1">Selecciona una fórmula</string>
+    <string name="btnVerify">Calcular</string>
+    <string name="result">El volúmen es %f</string>
+    <string name="version">Versión 1.0</string>
+    <string name="author">Creada por Aranza Abril Núñez Luna</string>
+
+    <string-array name="spinner_options">
+        <item>Volúmen de cilindro</item>
+        <item>Volúmen de cono</item>
+        <item>Volúmen de pirámide</item>
+    </string-array>
+
+    <string-array name="cylinder_text">
+        <item>Inserte el radio</item>
+        <item>Inserte la altura</item>
+        <item>Los valores deben de ser mayores a cero</item>
+    </string-array>
+
+    <string-array name="cone_text">
+        <item>Inserte el radio</item>
+        <item>Inserte la altura</item>
+        <item>Los valores deben de ser mayores a cero</item>
+    </string-array>
+
+    <string-array name="pyramid_text">
+        <item>Inserte el ancho de la base</item>
+        <item>Insert el alto de la base</item>
+        <item>Insert la altura de la pirámide</item>
+        <item>Los valores deben de ser mayores a cero</item>
+    </string-array>
+</resources>

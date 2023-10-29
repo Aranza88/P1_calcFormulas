@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Form Calculator</string>
+    <string name="app_name">Volumes</string>
     <string name="instruction_1">Select a formula</string>
+    <string name="btnVerify">Calculate</string>
+    <string name="result">The volume is %f</string>
+    <string name="version">Version 1.0</string>
+    <string name="author">Created by Aranza Abril Núñez Luna</string>
 
     <string-array name="spinner_options">
         <item>Cylinder volume</item>
@@ -8,4 +12,22 @@
         <item>Pyramid Volume</item>
     </string-array>
 
+    <string-array name="cylinder_text">
+        <item>Insert the radius</item>
+        <item>Insert the height</item>
+        <item>The values must be greater than zero</item>
+    </string-array>
+
+    <string-array name="cone_text">
+        <item>Insert the radius</item>
+        <item>Insert the height</item>
+        <item>The values must be greater than zero</item>
+    </string-array>
+
+    <string-array name="pyramid_text">
+        <item>Insert the width of the base</item>
+        <item>Insert the height of the base</item>
+        <item>Insert the height of the pyramid</item>
+        <item>The values must be greater than zero</item>
+    </string-array>
 </resources>
