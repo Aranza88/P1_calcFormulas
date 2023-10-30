@@ -53,24 +53,11 @@ class MainActivity : AppCompatActivity() {
                         binding.data3.visibility = View.GONE
 
                         //Se valida si el botón debe de estar activado o no
-                        binding.data1.addTextChangedListener(object: TextWatcher{
-                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun afterTextChanged(p0: Editable?) {
-                                binding.btnVerify.isEnabled = verify2Text()
-                            }
-                        })
-                        binding.data2.addTextChangedListener(object: TextWatcher{
-                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun afterTextChanged(p0: Editable?) {
-                                binding.btnVerify.isEnabled = verify2Text()
-                            }
-                        })
+                        enableButton(2)
 
                         //Se establece el funcionamiento del botón
                         binding.btnVerify.setOnClickListener {
-                            if(verify2Text()){
+                            if(verifyText(2)){
                                 val radius = binding.data1.text.toString().toDouble()
                                 val height = binding.data2.text.toString().toDouble()
                                 if((radius <= 0) or (height <= 0)){ //Se verifica que los valores no sean menores o iguales a cero
@@ -91,24 +78,11 @@ class MainActivity : AppCompatActivity() {
                         binding.data3.visibility = View.GONE
 
                         //Se valida si el botón debe de estar activado o no
-                        binding.data1.addTextChangedListener(object: TextWatcher{
-                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun afterTextChanged(p0: Editable?) {
-                                binding.btnVerify.isEnabled = verify2Text()
-                            }
-                        })
-                        binding.data2.addTextChangedListener(object: TextWatcher{
-                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun afterTextChanged(p0: Editable?) {
-                                binding.btnVerify.isEnabled = verify2Text()
-                            }
-                        })
+                        enableButton(2)
 
                         //Se establece el funcionamiento del botón
                         binding.btnVerify.setOnClickListener {
-                            if(verify2Text()){
+                            if(verifyText(2)){
                                 val radius = binding.data1.text.toString().toDouble()
                                 val height = binding.data2.text.toString().toDouble()
                                 if((radius <= 0) or (height <= 0)){ //Se verifica que los valores no sean menores o iguales a cero
@@ -130,31 +104,11 @@ class MainActivity : AppCompatActivity() {
                         binding.data3.hint = text[2]
 
                         //Se valida si el botón debe de estar activado o no
-                        binding.data1.addTextChangedListener(object: TextWatcher{
-                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun afterTextChanged(p0: Editable?) {
-                                binding.btnVerify.isEnabled = verify3Text()
-                            }
-                        })
-                        binding.data2.addTextChangedListener(object: TextWatcher{
-                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun afterTextChanged(p0: Editable?) {
-                                binding.btnVerify.isEnabled = verify3Text()
-                            }
-                        })
-                        binding.data3.addTextChangedListener(object: TextWatcher{
-                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                            override fun afterTextChanged(p0: Editable?) {
-                                binding.btnVerify.isEnabled = verify3Text()
-                            }
-                        })
+                        enableButton(3)
 
                         //Se establece el funcionamiento del botón
                         binding.btnVerify.setOnClickListener {
-                            if(verify3Text()){
+                            if(verifyText(3)){
                                 val a = binding.data1.text.toString().toDouble()
                                 val b = binding.data2.text.toString().toDouble()
                                 val height = binding.data3.text.toString().toDouble()
@@ -175,11 +129,47 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Verificación de cajas de texto
-    fun verify2Text(): Boolean = (binding.data1.text.isNotEmpty() && binding.data2.text.isNotEmpty())
-    fun verify3Text(): Boolean = (binding.data2.text.isNotEmpty() && binding.data2.text.isNotEmpty() && binding.data1.text.isNotEmpty())
+    fun verifyText(numText: Int): Boolean {
+        if(numText == 2)
+            return (binding.data1.text.isNotEmpty() && binding.data2.text.isNotEmpty())
+        if(numText == 3)
+            return (binding.data1.text.isNotEmpty() && binding.data2.text.isNotEmpty() && binding.data3.text.isNotEmpty())
+        return false
+    }
 
     //Funciones de fórmulas
     fun cylinderVolume(radius: Double, height: Double): Double = pi * radius * radius * height
     fun coneVolume(radius: Double, height: Double): Double = (pi * radius * radius * height) / 3
     fun pyramidVolume(a: Double, b: Double, height: Double): Double = (a * b * height) / 3
+
+    //Función para habilitar el botón
+    fun enableButton(numText: Int){
+        binding.data1.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(p0: Editable?) {
+                binding.btnVerify.isEnabled = verifyText(numText)
+            }
+        })
+        if(numText >= 2){
+            binding.data2.addTextChangedListener(object: TextWatcher{
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                override fun afterTextChanged(p0: Editable?) {
+                    binding.btnVerify.isEnabled = verifyText(numText)
+
+                }
+            })
+        }
+        if(numText >= 3){
+            binding.data3.addTextChangedListener(object: TextWatcher{
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                override fun afterTextChanged(p0: Editable?) {
+                    binding.btnVerify.isEnabled = verifyText(numText)
+
+                }
+            })
+        }
+    }
 }
